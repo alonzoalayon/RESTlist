@@ -1,49 +1,40 @@
 var express = require('express');
 var router = express.Router();
-var SodaModel = require('../models/SodaModel.js');
+var SodaController = require('../controllers/SodaController.js');
+
 /*
 * GET
 */
 router.get('/', function (req, res) {
-
+  SodaController.list(req, res);
 });
 
 /*
 * GET
 */
 router.get('/:id', function (req, res) {
-
+  SodaController.show(req, res);
 });
 
 /*
 * POST
 */
 router.post('/', function (req, res) {
-  // create a new TaskModel
-  var soda = new SodaModel({
-    // here we grab the text attribute from the request body
-        soda : req.body.soda
-  });
-
-  // save the task model to the database
-  soda.save(function (err, soda) {
-    // since this command is asyncronous, we have to put the return in a callback
-    return res.json(soda);
-  });
+  SodaController.create(req, res);
 });
 
 /*
 * PUT
 */
 router.put('/:id', function (req, res) {
-
+  SodaController.update(req, res);
 });
 
 /*
 * DELETE
 */
 router.delete('/:id', function (req, res) {
-
+  SodaController.remove(req, res);
 });
 
 module.exports = router;
