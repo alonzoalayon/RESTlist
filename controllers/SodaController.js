@@ -35,7 +35,8 @@ module.exports = {
     });
 
     soda.save(function (err, soda) {
-      return res.json(soda);
+      //return res.json(soda);
+      res.redirect('/');
     });
   },
 
